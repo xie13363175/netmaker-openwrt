@@ -86,6 +86,12 @@ define Package/netmaker/install
 	$(LN) netclient $(1)/etc/netclient/netclient
 endef
 
+define Package/netmaker/postinst
+#!/bin/sh
+	chmod +x ./etc/init.d/*
+exit 0
+endef
+
 $(eval $(call GoBinPackage,netmaker))
 $(eval $(call BuildPackage,netmaker))
 
