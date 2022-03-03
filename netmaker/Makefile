@@ -75,6 +75,8 @@ This package provides the source files.
 endef
 
 define Package/netmaker/install
+	$(INSTALL_DIR) $(1)/etc/netclient
+	$(INSTALL_DIR) $(1)/etc/netclient/config
 	$(INSTALL_DIR) $(1)/etc/systemd/
 	$(INSTALL_DIR) $(1)/etc/systemd/system
 	$(INSTALL_DIR) $(1)/usr/bin
@@ -87,7 +89,7 @@ endef
 define Package/netmaker/postinst
 #!/bin/sh
 	chmod +x ./etc/init.d/*
-	chmod +x ./etc/netclient/*
+	chmod +x ./etc/netclient
 exit 0
 endef
 
