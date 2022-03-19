@@ -88,7 +88,7 @@ endef
 
 define Package/netmaker/postinst
 #!/bin/sh
-	chmod +x ./etc/init.d/*
+	chmod +x ./etc/init.d/netclient
 	chmod +x ./etc/netclient
 exit 0
 endef
