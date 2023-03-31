@@ -12,9 +12,9 @@ PKG_VERSION:=0.9.2
 PKG_RELEASE:=1
 
 PKG_SOURCE_PROTO:=git
-PKG_SOURCE_URL:=https://github.com/gravitl/netmaker.git
-PKG_SOURCE_VERSION:=bf51d02de1f3939cd7b1c117986f083848b86d6f
-PKG_SOURCE_DATE:=20220225
+PKG_SOURCE_URL:=https://github.com/gravitl/netclient.git
+PKG_SOURCE_VERSION:=7dc61b0e6dbcbbe2c5b1ed34af187f6fb2f2608f
+PKG_SOURCE_DATE:=20230331
 PKG_MIRROR_HASH:=skip
 
 PKG_LICENSE:=MIT
@@ -25,7 +25,7 @@ PKG_BUILD_DEPENDS:=golang/host
 PKG_BUILD_PARALLEL:=1
 PKG_USE_MIPS16:=0
 
-GO_PKG:=github.com/gravitl/netmaker
+GO_PKG:=github.com/gravitl/netclient
 GO_PKG_INSTALL_EXTRA:=extra/file extra/dir
 GO_PKG_EXCLUDES:=excluded
 GO_PKG_LDFLAGS:=-s -w
@@ -33,34 +33,34 @@ GO_PKG_LDFLAGS:=-s -w
 include $(INCLUDE_DIR)/package.mk
 include $(TOPDIR)/feeds/packages/lang/golang/golang-package.mk
 
-define Package/netmaker
-$(call Package/netmaker/Default)
+define Package/netclient
+$(call Package/netclient/Default)
 $(call GoPackage/GoSubMenu)
   SECTION:=net
   CATEGORY:=Network
   SUBMENU:=VPN
 endef
 
-define Package/netmaker/Default
-  TITLE:=Netmaker for OpenWRT
-  URL:=https://github.com/gravitl/netmaker
+define Package/netclient/Default
+  TITLE:=netclient for OpenWRT
+  URL:=https://github.com/gravitl/netclient
   DEPENDS:=$(GO_ARCH_DEPENDS)
   MAINTAINER:=sbilly <superli_1980@hotmail.com>
 endef
 
-define Package/netmaker/Default/description
-Netmaker is a platform for creating and managing fast, secure, and 
+define Package/netclient/Default/description
+netclient is a platform for creating and managing fast, secure, and 
 dynamic virtual overlay networks using WireGuard. This project offers
-OpenWRT packages for Netmaker.
+OpenWRT packages for netclient.
 endef
 
-define Package/netmaker/description
-$(call Package/netmaker/Default/description)
+define Package/netclient/description
+$(call Package/netclient/Default/description)
 
 This package contains the binaries.
 endef
 
-define Package/netmaker-dev
+define Package/netclient-dev
   TITLE+= (source files)
   SECTION:=net
   CATEGORY:=Network
@@ -68,8 +68,8 @@ define Package/netmaker-dev
   PKGARCH:=all
 endef
 
-define Package/netmaker-dev/description
-$(call Package/netmaker/Default/description)
+define Package/netclient-dev/description
+$(call Package/netclient/Default/description)
 
 This package provides the source files.
 endef
