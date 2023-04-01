@@ -7,13 +7,13 @@
 
 include $(TOPDIR)/rules.mk
 
-PKG_NAME:=netmaker
+PKG_NAME:=netclient
 PKG_VERSION:=0.18.5
 PKG_RELEASE:=1
 
 PKG_SOURCE_PROTO:=git
 PKG_SOURCE_URL:=https://github.com/gravitl/netclient.git
-PKG_SOURCE_VERSION:=7dc61b0e6dbcbbe2c5b1ed34af187f6fb2f2608f
+PKG_SOURCE_VERSION:=a37f1d6726c56e1bac919c1a2fc7b8c0a4c05fd1
 PKG_SOURCE_DATE:=20230331
 PKG_MIRROR_HASH:=skip
 
@@ -74,7 +74,7 @@ $(call Package/netclient/Default/description)
 This package provides the source files.
 endef
 
-define Package/netmaker/install
+define Package/netclient/install
 	$(INSTALL_DIR) $(1)/etc/netclient
 	$(INSTALL_DIR) $(1)/etc/netclient/config
 	$(INSTALL_DIR) $(1)/etc/systemd/
@@ -93,8 +93,8 @@ define Package/netclient/postinst
 exit 0
 endef
 
-$(eval $(call GoBinPackage,netmaker))
-$(eval $(call BuildPackage,netmaker))
+$(eval $(call GoBinPackage,netclient))
+$(eval $(call BuildPackage,netclient))
 
-$(eval $(call GoSrcPackage,netmaker-dev))
-$(eval $(call BuildPackage,netmaker-dev))
+$(eval $(call GoSrcPackage,netclient-dev))
+$(eval $(call BuildPackage,netclient-dev))
