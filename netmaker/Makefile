@@ -8,7 +8,7 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=netmaker
-PKG_VERSION:=0.9.2
+PKG_VERSION:=0.18.5
 PKG_RELEASE:=1
 
 PKG_SOURCE_PROTO:=git
@@ -86,9 +86,9 @@ define Package/netmaker/install
 	$(LN) netclient $(1)/etc/netclient/netclient
 endef
 
-define Package/netmaker/postinst
+define Package/netclient/postinst
 #!/bin/sh
-	chmod +x ./etc/init.d/netclient
+	chmod +x ./etc/hotplug.d/iface/99-netclient
 	chmod +x ./etc/netclient
 exit 0
 endef
